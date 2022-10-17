@@ -47,10 +47,11 @@ def main():
                         help='number of gpus to use')
     parser.add_argument('--dist_port', type=int, default=12345,
                         help='distributed training port id; any number between 10000 and 20000 will work')
-
+    
     args = parser.parse_args()
     print(args)
     trainer = LOTClassTrainer(args)
+    
     # Construct category vocabulary
     trainer.category_vocabulary(top_pred_num=args.top_pred_num, category_vocab_size=args.category_vocab_size)
     # Training with masked category prediction
